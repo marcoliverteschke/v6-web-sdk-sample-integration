@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>PayPal and SEPA - One-time Payment Flow - PayPal Web SDK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/client/shared/styles.css" />
+    <style>
+      .buttons-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      alert-component {
+        max-width: 50rem;
+        margin-top: 4rem;
+      }
+
+      .sepa-mark-container {
+        margin-bottom: 2rem;
+      }
+
+      .payment-container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      sepa-button {
+        max-width: 225px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>PayPal and SEPA</h1>
+    <p>
+      This page renders the paypal-payments buttons and a SEPA button together,
+      from a single SDK instance that loads both components.
+    </p>
+
+    <div class="buttons-container">
+      <paypal-button id="paypal-button" type="pay" class="paypal-blue" hidden></paypal-button>
+
+      <sepa-button id="sepa-button" type="pay" hidden></sepa-button>
+      <p>SEPA-Lastschrift wird über PayPal abgewickelt. Sie benötigen dafür <strong>kein</strong> PayPal-Konto!</p>
+    </div>
+
+    <alert-component></alert-component>
+
+    <script src="app.js"></script>
+
+    <script
+      async
+      src="https://www.sandbox.paypal.com/web-sdk/v6/core"
+      onload="onPayPalWebSdkLoaded()"
+    ></script>
+
+    <script async src="/client/shared/alert-component.js"></script>
+  </body>
+</html>
